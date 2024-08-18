@@ -1,0 +1,168 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 20px;
+}
+
+/* Center the drum machine on the page */
+#drum-machine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+/* Styling for the wrapper around the drum machine */
+.wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 1000px;
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Grid layout for the keyboard section */
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Styling for individual drum pads */
+.keyboard .drum-pad {
+  width: 100%;
+  height: 80px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: pulse 1.5s infinite alternate;
+}
+
+/* Keyframes for pulse animation */
+@keyframes pulse {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(1.05);
+  }
+}
+
+.keyboard .drum-pad:active {
+  background-color: #0056b3;
+  transform: scale(0.95);
+}
+
+/* Styling for the control section */
+.control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* General styling for buttons and inputs in the control section */
+.control button,
+.control input {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.control button {
+  background-color: #28a3a7;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.control button:hover {
+  background-color: #217a88;
+  animation: buttonHover 0.3s ease-in-out;
+}
+
+.control input {
+  width: 100%;
+  max-width: 300px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.control h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Keyframes for button hover animation */
+@keyframes buttonHover {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(1.05);
+  }
+}
+
+/* Responsive design adjustments */
+@media (min-width: 768px) {
+  .wrapper {
+      width: 700px;
+  }
+}
+
+@media (min-width: 992px) {
+  .wrapper {
+      grid-template-columns: 1fr 1fr;
+  }
+}
