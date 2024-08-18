@@ -1,28 +1,23 @@
-/* Reset default margin and padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Basic styling for the body */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #f0f0f0;
   color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   margin: 20px;
 }
 
-/* Center the drum machine on the page */
 #drum-machine {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
   padding: 20px;
   border-radius: 12px;
@@ -30,9 +25,8 @@ body {
   width: 100%;
 }
 
-/* Styling for the wrapper around the drum machine */
 .wrapper {
-  background: #ffffff;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -43,26 +37,23 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Keyframes for fade-in animation */
 @keyframes fadeIn {
   from {
-      opacity: 0;
-      transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Grid layout for the keyboard section */
 .keyboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
-/* Styling for individual drum pads */
 .keyboard .drum-pad {
   width: 100%;
   height: 80px;
@@ -82,13 +73,12 @@ body {
   animation: pulse 1.5s infinite alternate;
 }
 
-/* Keyframes for pulse animation */
 @keyframes pulse {
   from {
-      transform: scale(1);
+    transform: scale(1);
   }
   to {
-      transform: scale(1.05);
+    transform: scale(1.05);
   }
 }
 
@@ -97,14 +87,12 @@ body {
   transform: scale(0.95);
 }
 
-/* Styling for the control section */
 .control {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* General styling for buttons and inputs in the control section */
 .control button,
 .control input {
   margin-bottom: 20px;
@@ -116,14 +104,8 @@ body {
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
-.control button {
-  background-color: #28a3a7;
-  color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .control button:hover {
-  background-color: #217a88;
+  background-color: #f45f02;
   animation: buttonHover 0.3s ease-in-out;
 }
 
@@ -144,25 +126,23 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Keyframes for button hover animation */
 @keyframes buttonHover {
   from {
-      transform: scale(1);
+    transform: scale(1);
   }
   to {
-      transform: scale(1.05);
+    transform: scale(1.05);
   }
 }
 
-/* Responsive design adjustments */
 @media (min-width: 768px) {
   .wrapper {
-      width: 700px;
+    width: 700px;
   }
 }
 
 @media (min-width: 992px) {
   .wrapper {
-      grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
