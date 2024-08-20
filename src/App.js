@@ -181,9 +181,12 @@ const App = () => {
   useEffect(() => {
     const audioElements = sounds.map((sound) => document.getElementById(sound.key));
     audioElements.forEach((audio) => {
-      if (audio) audio.volume = volume;
+      if (audio) {
+        const updatedAudio = { ...audio, volume };
+        updatedAudio.volume = volume;
+      }
     });
-  }, [volume, sounds]);
+  }, [volume, sounds]);  
 
   return (
     <div id="drum-machine">
