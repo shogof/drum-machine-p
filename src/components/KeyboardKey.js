@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 const KeyboardKey = ({
@@ -11,18 +11,18 @@ const KeyboardKey = ({
     keyCode,
   },
 }) => {
-  const handleKeydown = (e) => {
+  const handleKeydown = useCallback((e) => {
     if (keyCode === e.keyCode) {
       const audio = document.getElementById(key);
       play(key, id);
       deactivateAudio(audio);
     }
-  };
+  }, [keyCode, key, play, id, deactivateAudio]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeydown);
     return () => document.removeEventListener('keydown', handleKeydown);
-  }, [handleKeydown, keyCode, play, deactivateAudio]);
+  }, [handleKeydown]);
 
   return (
     <button
@@ -34,8 +34,9 @@ const KeyboardKey = ({
         className="clip"
         src={url}
         id={key}
-        aria-label={`Audio clip for ${key}`}
-      />
+        aria-label={`Audio clip for ${key}`}>
+        <track kind="metadata" />
+      </audio>
       {key}
     </button>
   );

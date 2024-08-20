@@ -11,10 +11,10 @@ const Keyboard = ({
   <div className="keyboard">
     {sounds.map((sound) => (
       <KeyboardKey
-        key ={sound.keyCode}
-        sound ={power ? sound : { ...sound, url: '#' }}
-        play ={play}
-        deactivateAudio= {deactivateAudio}
+        key={sound.keyCode}
+        sound={power ? sound : { ...sound, url: '#' }}
+        play={play}
+        deactivateAudio={deactivateAudio}
       />
     ))}
   </div>

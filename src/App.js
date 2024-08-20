@@ -178,7 +178,8 @@ const App = () => {
   useEffect(() => {
     const setVolume = (audioElement) => {
       if (audioElement) {
-        audioElement.volume = volume;
+        const element = audioElement;
+        element.volume = volume;
       }
     };
   
@@ -188,7 +189,7 @@ const App = () => {
     return () => {
       // Optionally handle cleanup
     };
-  }, [volume, sounds]);  
+  }, [sounds, volume]);
 
   return (
     <div id="drum-machine">
