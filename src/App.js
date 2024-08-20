@@ -140,7 +140,7 @@ const App = () => {
       parent.style.backgroundColor = '#000';
       parent.style.color = '#fff';
     }
-  };  
+  };
 
   const deactivateAudio = (audio) => {
     setTimeout(() => {
@@ -150,7 +150,7 @@ const App = () => {
         parent.style.color = '#000';
       }
     }, 300);
-  };  
+  };
 
   const play = (key, sound) => {
     if (power) {
@@ -159,7 +159,7 @@ const App = () => {
       if (audio) {
         styleActiveKey(audio);
         audio.currentTime = 0;
-        audio.play().catch((error) => {
+        audio.play().catch(() => {
           // Handle the error appropriately without console.log
         });
         deactivateAudio(audio);
