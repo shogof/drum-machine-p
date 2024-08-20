@@ -37,7 +37,11 @@ const KeyboardKey = ({
         id={key}
         aria-label={`Audio clip for ${key}`}
       >
-        <track kind="metadata" />
+        <track
+          kind="captions"
+          src="path/to/captions.vtt"
+          label="English captions"
+        />
       </audio>
       {key}
     </button>
