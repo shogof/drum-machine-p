@@ -139,7 +139,8 @@ const App = () => {
       const parent = element.parentElement;
       parent.style.backgroundColor = '#000';
       parent.style.color = '#fff';
-    }};  
+    }
+  };
 
   const deactivateAudio = (audio) => {
     setTimeout(() => {
@@ -149,17 +150,19 @@ const App = () => {
         parent.style.color = '#000';
       }
     }, 300);
-  };  
+  };
 
-const play = (key, sound) => {
-  if (power) {
-    setSoundName(sound);
-    const audio = document.getElementById(key);
-    if (audio) {
-      styleActiveKey(audio);
-      audio.currentTime = 0;
-      deactivateAudio(audio);
-    }}};
+  const play = (key, sound) => {
+    if (power) {
+      setSoundName(sound);
+      const audio = document.getElementById(key);
+      if (audio) {
+        styleActiveKey(audio);
+        audio.currentTime = 0;
+        deactivateAudio(audio);
+      }
+    }
+  };
 
   const stop = () => setPower(!power);
 
@@ -172,14 +175,20 @@ const play = (key, sound) => {
 
   const handleVolumeChange = (e) => setVolume(e.target.value);
 
-useEffect(() => {
-  const audioElements = sounds.map((sound) => document.getElementById(sound.key));
-  audioElements.forEach((audio) => {
-    if (audio) {
-      audio.volume = volume;
-    }
-  });
-}, [volume, sounds]);  
+  useEffect(() => {
+    const setVolume = (audioElement) => {
+      if (audioElement) {
+        audioElement.volume = volume;
+      }
+    };
+  
+    const audioElements = sounds.map((sound) => document.getElementById(sound.key));
+    audioElements.forEach(setVolume);
+  
+    return () => {
+      // Optionally handle cleanup
+    };
+  }, [volume, sounds]);  
 
   return (
     <div id="drum-machine">

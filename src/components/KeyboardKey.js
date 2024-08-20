@@ -19,25 +19,25 @@ const KeyboardKey = ({
     }
   };
 
-useEffect(() => {
-  document.addEventListener('keydown', handleKeydown);
-  return () => document.removeEventListener('keydown', handleKeydown);
-}, [handleKeydown, keyCode, play, deactivateAudio]);  
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
+  }, [handleKeydown, keyCode, play, deactivateAudio]);
 
   return (
     <button
-    id={keyCode}
-    className="drum-pad"
-    onClick={() => play(key, id)}
-    type="button" >
-    <audio
-      className="clip"
-      src={url}
-      id={key}
-      aria-label={`Audio clip for ${key}`}
-    />
-    {key}
-  </button>
+      id={keyCode}
+      className="drum-pad"
+      onClick={() => play(key, id)}
+      type="button">
+      <audio
+        className="clip"
+        src={url}
+        id={key}
+        aria-label={`Audio clip for ${key}`}
+      />
+      {key}
+    </button>
   );
 };
 
