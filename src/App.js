@@ -186,7 +186,7 @@ const App = () => {
         updatedAudio.volume = volume;
       }
     });
-  }, [volume, sounds]);  
+  }, [volume, sounds]);
 
   return (
     <div id="drum-machine">
