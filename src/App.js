@@ -182,10 +182,10 @@ const App = () => {
         element.volume = volume;
       }
     };
-  
+
     const audioElements = sounds.map((sound) => document.getElementById(sound.key));
     audioElements.forEach(setVolume);
-  
+
     return () => {
       // Optionally handle cleanup
     };

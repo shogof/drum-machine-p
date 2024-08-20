@@ -29,12 +29,14 @@ const KeyboardKey = ({
       id={keyCode}
       className="drum-pad"
       onClick={() => play(key, id)}
-      type="button">
+      type="button"
+    >
       <audio
         className="clip"
         src={url}
         id={key}
-        aria-label={`Audio clip for ${key}`}>
+        aria-label={`Audio clip for ${key}`}
+      >
         <track kind="metadata" />
       </audio>
       {key}
