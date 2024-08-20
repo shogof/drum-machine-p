@@ -179,8 +179,8 @@ const App = () => {
   const handleVolumeChange = (e) => setVolume(e.target.value);
 
   useEffect(() => {
-    const audioElements = sounds.map(sound => document.getElementById(sound.key));
-    audioElements.forEach(audio => {
+    const audioElements = sounds.map((sound) => document.getElementById(sound.key));
+    audioElements.forEach((audio) => {
       if (audio) audio.volume = volume;
     });
   }, [volume, sounds]);
