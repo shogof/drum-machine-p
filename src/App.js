@@ -57,7 +57,7 @@ const firstSoundsGroup = [
     key: 'C',
     id: 'Closed-HH',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3',
-  }
+  },
 ];
 
 const secondSoundsGroup = [
@@ -114,7 +114,7 @@ const secondSoundsGroup = [
     key: 'C',
     id: 'Snare',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3',
-  }
+  },
 ];
 
 const soundsName = {
@@ -134,19 +134,23 @@ const App = () => {
   const [soundType, setSoundType] = useState('heaterKit');
   const [sounds, setSounds] = useState(soundsGroup[soundType]);
 
-  const styleActiveKey = (key) => {
-    key.parentElement.style.backgroundColor = '#000';
-    key.parentElement.style.color = '#fff';
-  };
+  const styleActiveKey = (element) => {
+    if (element && element.parentElement) {
+      const parent = element.parentElement;
+      parent.style.backgroundColor = '#000';
+      parent.style.color = '#fff';
+    }
+  };  
 
   const deactivateAudio = (audio) => {
     setTimeout(() => {
-      if (audio) {
-        audio.parentElement.style.backgroundColor = '#fff';
-        audio.parentElement.style.color = '#000';
+      if (audio && audio.parentElement) {
+        const parent = audio.parentElement;
+        parent.style.backgroundColor = '#fff';
+        parent.style.color = '#000';
       }
     }, 300);
-  };
+  };  
 
   const play = (key, sound) => {
     if (power) {
@@ -155,7 +159,9 @@ const App = () => {
       if (audio) {
         styleActiveKey(audio);
         audio.currentTime = 0;
-        audio.play().catch((error) => console.error('Playback error:', error));
+        audio.play().catch((error) => {
+          // Handle the error appropriately without console.log
+        });
         deactivateAudio(audio);
       }
     }
